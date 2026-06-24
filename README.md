@@ -1,5 +1,5 @@
 # projeto-L-cido
 Componentes da Equipe:
-Guilherme de Andrade
+Guilherme de Andrade,
 João de Almeida Calado Neto
-Bernardo Gabriel
+e Bernardo Gabriel
