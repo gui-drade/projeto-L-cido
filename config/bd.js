@@ -4,3 +4,5 @@ const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: './bd.sqlite'
 });
+
+module.exports = sequelize;
