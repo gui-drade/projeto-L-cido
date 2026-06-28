@@ -1,0 +1,21 @@
+<h2>Editar Informações do ADM</h2>
+<form action="/editar/{{adm.cpf}}" method="POST">
+    <div>
+        <label>CPF (Não alterável):</label>
+        <input type="text" value="{{adm.cpf}}" disabled>
+    </div>
+    <div>
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{adm.nome}}" required>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{adm.email}}" required>
+    </div>
+    <div>
+        <label>Nova Senha:</label>
+        <input type="password" name="senha" value="{{adm.senha}}" required>
+    </div>
+    <button type="submit" style="background: blue; color: white; padding: 10px; border: none; cursor: pointer;">Atualizar</button>
+    <a href="/">Cancelar</a>
+</form>

@@ -1,0 +1,30 @@
+<h2>Painel de Administradores</h2>
+<a href="/cadastrar" class="btn btn-add">Novo Administrador</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>CPF</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each adms}}
+        <tr>
+            <td>{{this.cpf}}</td>
+            <td>{{this.nome}}</td>
+            <td>{{this.email}}</td>
+            <td>
+                <a href="/editar/{{this.cpf}}" class="btn btn-edit">Editar</a>
+                <a href="/deletar/{{this.cpf}}" class="btn btn-del" onclick="return confirm('Tem certeza?')">Deletar</a>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="4">Nenhum administrador cadastrado.</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
