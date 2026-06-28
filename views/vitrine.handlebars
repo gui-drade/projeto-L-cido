@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+.vitrine-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px; 
+    padding: 30px;
+    justify-content: center; 
+}
+
+
+.card-item {
+    background-color: #ffffff; 
+    width: 280px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-imagem img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    border-bottom: 3px solid #000080; 
+}
+
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-titulo {
+    margin: 0 0 10px 0;
+    color: #333333;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
+
+
+.card-categoria {
+    background-color: #f0f0f0;
+    color: #555555;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    align-self: flex-start; 
+    margin-bottom: 12px;
+    font-family: sans-serif;
+}
+
+.card-descricao {
+    color: #666666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    flex-grow: 1;
+    font-family: sans-serif;
+}
+
+
+.card-rodape {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-top: 1px solid #eeeeee; 
+    padding-top: 15px;
+    font-family: sans-serif;
+}
+
+.card-preco {
+    color: #000080; 
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.card-estoque {
+    color: #888888;
+    font-size: 0.85rem;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+</style>
+<body>
+    <div class="vitrine-container">
+    
+    {{#each itens}}
+        <div class="card-item">
+            <div class="card-imagem">
+                <img src="{{this.imagem}}" alt="Imagem de {{this.nome}}">
+            </div>
+            
+            <div class="card-info">
+                <h3 class="card-titulo">{{this.nome}}</h3>
+                <span class="card-categoria">{{this.categoria}}</span>
+                <p class="card-descricao">{{this.descricao}}</p>
+                
+                <div class="card-rodape">
+                    <span class="card-preco">{{this.preco}} Pontos</span>
+                    <span class="card-estoque"> Em Estoque: {{this.quantidade}}</span>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p class="mensagem-vazia">Nenhum item disponível no momento.</p>
+    {{/each}}
+    
+</div>
+</body>
+</html>
