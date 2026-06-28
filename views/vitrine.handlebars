@@ -6,13 +6,31 @@
     <title>Document</title>
 </head>
 <style>
+    body {
+            margin: 0; 
+            padding: 0;
+            background-color: #d8d8d8; 
+            font-family: sans-serif;
+        }
+.faixa-azul {
+            background-color: #0b00a0; 
+            width: 100%;
+            height: 70px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+            
+           
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+        }
     
 .vitrine-container {
     display: flex;
     flex-wrap: wrap; 
     gap: 25px; 
     padding: 30px;
-    justify-content: center; 
+    justify-content: flex-start; 
 }
 
 
@@ -106,6 +124,7 @@
 }
 </style>
 <body>
+    <header class="faixa-azul"></header>
     <div class="vitrine-container">
     
     {{#each itens}}
