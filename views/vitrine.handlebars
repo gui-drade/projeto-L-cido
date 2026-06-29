@@ -6,6 +6,39 @@
     <title>Document</title>
 </head>
 <style>
+    .barra-busca {
+        display: flex;
+        justify-content: center;
+        padding: 30px 20px 0 20px;
+    }
+
+    .busca-form {
+        display: flex;
+        gap: 10px;
+    }
+
+    .busca-item {
+    width: 400px; 
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #5fa8d3; 
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1); 
+    font-size: 1rem;
+    background-color: #f4f4f4; 
+}
+
+.btn-busca {
+    background-color: #0b00a0;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+    
     body {
             margin: 0; 
             padding: 0;
@@ -122,11 +155,39 @@
     font-size: 1.2rem;
     margin-top: 50px;
 }
+
+.btn-acao {
+    width: 100%;
+    background-color: #d9534f; color: white;
+    border: none;
+    padding: 8px; 
+    border-radius: 4px; 
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+ .card-acao {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+ }
+ a {
+    flex: 1;
+    text-align: center;
+    background-color: #0b00a0; color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+ }
 </style>
 <body>
     <header class="faixa-azul"></header>
+     <div class="barra-busca">
+            <form action="/vitrine" method="GET" class="form-busca">
+            <input type="text" name="busca" class="busca-item" placeholder="Qual item deseja buscar?" value="{{itemBuscado}}"></form>
+        </div>
     <div class="vitrine-container">
-    
     {{#each itens}}
         <div class="card-item">
             <div class="card-imagem">
@@ -142,11 +203,16 @@
                     <span class="card-preco">{{this.preco}} Pontos</span>
                     <span class="card-estoque"> Em Estoque: {{this.quantidade}}</span>
                 </div>
+                <div class="card-acao">
+                    <a href="/editar/{{this.id}}">Editar</a>
+                   <form action="/deletar/{{this.id}}" method="POST">
+                   <button class="btn-acao" type="submit">Deletar</button></form> 
+                </div>
             </div>
         </div>
-    {{else}}
-        <p class="mensagem-vazia">Nenhum item disponível no momento.</p>
-    {{/each}}
+   {{else}}
+            <p class="mensagem-vazia">Nenhum item disponível no momento.</p>
+        {{/each}}
     
 </div>
 </body>
