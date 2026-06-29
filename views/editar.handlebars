@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn-voltar {
+        width: 100%;
+    display: block; 
+    text-align: center;
+    background: transparent;
+    border: 2px solid #11a0b9; 
+    color: #1179da;
+    padding: 15px;
+    border-radius: 50px; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none; 
+    margin-top: 15px;
+    transition: 0.3s ease;
+    box-sizing: border-box;
+    }
+    body {
+        background: linear-gradient(135deg, #030406 0%, #223447 100%);
+        color: #F0F2F5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+          height: 100vh;
+
+    }
+    .cadastro-container{
+        background-color: #1F2A38;
+        width:100%;
+        max-width:500px;
+        padding: 40px;
+        border-radius:16px;
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5)
+    }
+    .cadastro-titulo {
+        display:flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+    .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-left: 15px; 
+}
+
+.input-group input {
+    background-color: #0A0D11; 
+    border: 2px solid #CBD2DE; 
+    color: #F0F2F5;
+    padding: 12px 20px;
+    border-radius: 50px; 
+    font-size: 1rem;
+    outline: none;
+}
+
+.btn-cadastrar {
+    width: 100%;
+    background: linear-gradient(180deg, #2b3b4f, #020203); 
+    border: 2px solid #CBD2DE;
+    color: #F0F2F5;
+    padding: 15px;
+    border-radius: 50px; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-cadastrar:hover {
+    background: #CBD2DE;
+    color: #0A0D11;
+}
+</style>
+<body>
+ <div class="cadastro-container">
+    <div class="cadastro-titulo"><h2>Alteração</h2></div>
+    <form action="/editar/{{item.id}}"method="POST">
+        <div class="input-group">
+            <label for="nome">Nome do Item</label>
+            <input type="text" id="nome" name="nome" value="{{item.nome}}">
+        </div>
+        <div class="input-group">
+            <label for="qtd-item">Quantidade do Item</label>
+            <Input type="number" id="qtd-item" name="quantidade" value="{{item.quantidade}}"></Input>
+        </div>
+        <div class="input-group">
+            <label for="img">Imagem do Item</label>
+            <input type="text" id="img" name="imagem" value="{{item.imagem}}">
+        </div>
+        <div class="input-group">
+            <label for="Categoria">Categoria</label>
+            <input type="text" id="Categoria" name="categoria" value="{{item.categoria}}">
+        </div>
+        <div class="input-group">
+            <label for="preco">Preço do Item</label>
+            <input type="number" id="preco" name="preco" value="{{item.preco}}">
+        </div>
+        <div class="input-group">
+           <label for="descricao">Descrição do Item</label>
+           <input type="text" id="descricao" name="descricao" value="{{item.descricao}}">
+        </div>
+        <button class="btn-cadastrar" type="submit">Salvar Alterações</button>
+        <a href="/vitrine" class="btn-voltar">Voltar para a Loja</a>
+    </form>
+    
+ </div>
+</body>
+</html>
