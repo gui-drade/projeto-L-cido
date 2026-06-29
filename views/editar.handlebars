@@ -10,17 +10,21 @@
         width: 100%;
     display: block; 
     text-align: center;
-    background: transparent;
-    border: 2px solid #11a0b9; 
-    color: #1179da;
+    background: linear-gradient(135deg, #030406 0%, #223447 100%);
+    border: 2px solid #d8d9da; 
+    color: #b9b9b9;
     padding: 15px;
     border-radius: 50px; 
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none; 
+    transition:0.3s ease;
     margin-top: 15px;
-    transition: 0.3s ease;
     box-sizing: border-box;
+    }
+    .btn-voltar:hover {
+      background: white;
+      color: #020203;
     }
     body {
         background: linear-gradient(135deg, #030406 0%, #223447 100%);
@@ -97,7 +101,7 @@
         </div>
         <div class="input-group">
             <label for="qtd-item">Quantidade do Item</label>
-            <Input type="number" id="qtd-item" name="quantidade" value="{{item.quantidade}}"></Input>
+            <input type="number" id="qtd-item" name="quantidade" value="{{item.quantidade}}">
         </div>
         <div class="input-group">
             <label for="img">Imagem do Item</label>
