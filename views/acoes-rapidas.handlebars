@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ações Rápidas</title>
+</head>
+<style>
+    body { background: linear-gradient(135deg, #030406 0%, #223447 100%); color: #F0F2F5; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; margin: 0; }
+    .painel-container { background-color: #1F2A38; width: 100%; max-width: 500px; padding: 30px; border-radius: 16px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5); }
+    .btn-menu { width: 100%; background-color: #0A0D11; border: 2px solid #CBD2DE; color: white; padding: 15px 20px; border-radius: 12px; font-size: 1.1rem; text-align: left; margin-bottom: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
+    .btn-menu:hover:not([disabled]) { background-color: #CBD2DE; color: #0A0D11; }
+    .btn-voltar { background: none; border: none; color: #f85149; cursor: pointer; font-weight: bold; margin-top: 10px; }
+</style>
+<body>
+    <div class="painel-container">
+        <h3>⚙️ Ações Rápidas</h3>
+        <button class="btn-menu" onclick="window.location.href='/gerenciar-alunos'">
+            <span>Gerenciar contas dos Alunos</span>
+            <span>👤</span>
+        </button>
+        <button class="btn-menu" disabled style="opacity: 0.5; cursor: not-allowed;">
+            <span>Gerenciar Docentes</span>
+            <span>📖</span>
+        </button>
+        <button class="btn-voltar" onclick="window.location.href='/'">Sair</button>
+    </div>
+</body>
+</html>
