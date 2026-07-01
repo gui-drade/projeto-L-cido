@@ -2,23 +2,39 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema CRUD ADM</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; color: #333; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #333; color: white; }
-        .btn { padding: 5px 10px; text-decoration: none; color: white; border-radius: 3px; }
-        .btn-add { background: green; padding: 10px; display: inline-block; margin-bottom: 10px; }
-        .btn-edit { background: blue; }
-        .btn-del { background: red; }
-        form { background: white; padding: 20px; border-radius: 5px; max-width: 400px; }
-        div { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; }
-        input { width: 100%; padding: 8px; box-sizing: border-box; }
+        tr:nth-child(even) { background-color: #f9f9f9; } 
+
+        /* Estilização de Botões e Links */
+        .btn { padding: 6px 12px; text-decoration: none; color: white; border-radius: 3px; display: inline-block; font-size: 14px; border: none; cursor: pointer; }
+        .btn-add { background: #28a745; padding: 10px 15px; margin-bottom: 20px; font-weight: bold; }
+        .btn-add:hover { background: #218838; }
+        .btn-edit { background: #0056b3; margin-right: 5px; }
+        .btn-edit:hover { background: #004085; }
+        .btn-del { background: #dc3545; }
+        .btn-del:hover { background: #c82333; }
+        
+        form { background: white; padding: 25px; border-radius: 5px; max-width: 450px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        input:focus { border-color: #0056b3; outline: none; }
+        
+        .btn-submit { background: #333; color: white; width: 100%; padding: 12px; font-weight: bold; margin-top: 10px; }
+        .btn-submit:hover { background: #444; }
     </style>
 </head>
 <body>
+
     {{{body}}}
+
 </body>
 </html>

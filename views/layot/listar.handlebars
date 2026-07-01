@@ -6,24 +6,25 @@
         <tr>
             <th>CPF</th>
             <th>Nome</th>
-            <th>Email</th>
+            <th>E-mail</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         {{#each adms}}
         <tr>
-            <td>{{this.cpf}}</td>
-            <td>{{this.nome}}</td>
-            <td>{{this.email}}</td>
+            <td>{{./cpf}}</td>
+            <td>{{./nome}}</td>
+            <td>{{./email}}</td>
             <td>
-                <a href="/editar/{{this.cpf}}" class="btn btn-edit">Editar</a>
-                <a href="/deletar/{{this.cpf}}" class="btn btn-del" onclick="return confirm('Tem certeza?')">Deletar</a>
+                <a href="/editar/{{./cpf}}" class="btn btn-edit">Editar</a>
+                <a href="/deletar/{{./cpf}}" class="btn btn-del" onclick="return confirm('Tem certeza que deseja deletar este administrador?')">Deletar</a>
             </td>
         </tr>
         {{else}}
         <tr>
-            <td colspan="4">Nenhum administrador cadastrado.</td>
+            <td colspan="4" style="text-align: center; color: #777; padding: 20px;">.
+            </td>
         </tr>
         {{/each}}
     </tbody>
