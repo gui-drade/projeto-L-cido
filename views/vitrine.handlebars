@@ -180,9 +180,21 @@
     border-radius: 4px;
     font-size: 0.9rem;
  }
+ .voltar-cadastro {
+    color: #ffffff;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: 4px solid #ffffff; 
+    padding: 10px 20px;
+    border-radius: 50px; 
+    margin-left: auto;
+ }
 </style>
 <body>
-    <header class="faixa-azul"></header>
+    <header class="faixa-azul">
+        <a href="/cadastro" class="voltar-cadastro"> Cadastrar Novo Item</a>
+    </header>
      <div class="barra-busca">
             <form action="/vitrine" method="GET" class="form-busca">
             <input type="text" name="busca" class="busca-item" placeholder="Qual item deseja buscar?" value="{{itemBuscado}}"></form>
