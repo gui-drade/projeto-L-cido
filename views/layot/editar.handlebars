@@ -1,0 +1,29 @@
+<h2>Editar Informações do Administrador</h2>
+
+<form action="/editar/{{./adm.cpf}}" method="POST">
+    <div class="form-group">
+        <label>CPF (Não alterável):</label>
+        <input type="text" value="{{./adm.cpf}}" disabled style="background-color: #e9ecef; cursor: not-allowed;">
+    </div>
+    
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{./adm.nome}}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" value="{{./adm.email}}" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="senha">Nova Senha (deixe em branco para manter a atual):</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite apenas se desejar alterar">
+    </div>
+    
+    <button type="submit" class="btn btn-submit" style="background: #0056b3;">Atualizar Dados</button>
+    
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+    
+    <a href="/" style="display: block; text-align: center; color: #555; text-decoration: none;">Cancelar e voltar</a>
+</form>
