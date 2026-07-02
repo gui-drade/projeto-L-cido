@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .barra-busca {
+        display: flex;
+        justify-content: center;
+        padding: 30px 20px 0 20px;
+    }
+
+    .busca-form {
+        display: flex;
+        gap: 10px;
+    }
+
+    .busca-item {
+    width: 400px; 
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #5fa8d3; 
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1); 
+    font-size: 1rem;
+    background-color: #f4f4f4; 
+}
+
+.btn-busca {
+    background-color: #0b00a0;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+    
+    body {
+            margin: 0; 
+            padding: 0;
+            background-color: #d8d8d8; 
+            font-family: sans-serif;
+        }
+.faixa-azul {
+            background-color: #0b00a0; 
+            width: 100%;
+            height: 70px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); 
+            
+           
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+        }
+    
+.vitrine-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px; 
+    padding: 30px;
+    justify-content: flex-start; 
+}
+
+
+.card-item {
+    background-color: #ffffff; 
+    width: 280px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-imagem img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+    border-bottom: 3px solid #000080; 
+}
+
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.card-titulo {
+    margin: 0 0 10px 0;
+    color: #333333;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
+
+
+.card-categoria {
+    background-color: #f0f0f0;
+    color: #555555;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    align-self: flex-start; 
+    margin-bottom: 12px;
+    font-family: sans-serif;
+}
+
+.card-descricao {
+    color: #666666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    flex-grow: 1;
+    font-family: sans-serif;
+}
+
+
+.card-rodape {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-top: 1px solid #eeeeee; 
+    padding-top: 15px;
+    font-family: sans-serif;
+}
+
+.card-preco {
+    color: #000080; 
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.card-estoque {
+    color: #888888;
+    font-size: 0.85rem;
+}
+
+.mensagem-vazia {
+    text-align: center;
+    color: #555;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.btn-acao {
+    width: 100%;
+    background-color: #d9534f; color: white;
+    border: none;
+    padding: 8px; 
+    border-radius: 4px; 
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+ .card-acao {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+ }
+ a {
+    flex: 1;
+    text-align: center;
+    background-color: #0b00a0; color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+ }
+ .voltar-cadastro {
+    color: #ffffff;
+    text-decoration: none; 
+    font-weight: bold;
+    font-size: 0.95rem;
+    border: 4px solid #ffffff; 
+    padding: 10px 20px;
+    border-radius: 50px; 
+    margin-left: auto;
+ }
+</style>
+<body>
+    <header class="faixa-azul">
+        <a href="/cadastro" class="voltar-cadastro"> Cadastrar Novo Item</a>
+    </header>
+     <div class="barra-busca">
+            <form action="/vitrine" method="GET" class="form-busca">
+            <input type="text" name="busca" class="busca-item" placeholder="Qual item deseja buscar?" value="{{itemBuscado}}"></form>
+        </div>
+    <div class="vitrine-container">
+    {{#each itens}}
+        <div class="card-item">
+            <div class="card-imagem">
+                <img src="{{this.imagem}}" alt="Imagem de {{this.nome}}">
+            </div>
+            
+            <div class="card-info">
+                <h3 class="card-titulo">{{this.nome}}</h3>
+                <span class="card-categoria">{{this.categoria}}</span>
+                <p class="card-descricao">{{this.descricao}}</p>
+                
+                <div class="card-rodape">
+                    <span class="card-preco">{{this.preco}} Pontos</span>
+                    <span class="card-estoque"> Em Estoque: {{this.quantidade}}</span>
+                </div>
+                <div class="card-acao">
+                    <a href="/editar/{{this.id}}">Editar</a>
+                   <form action="/deletar/{{this.id}}" method="POST">
+                   <button class="btn-acao" type="submit">Deletar</button></form> 
+                </div>
+            </div>
+        </div>
+   {{else}}
+            <p class="mensagem-vazia">Nenhum item disponível no momento.</p>
+        {{/each}}
+    
+</div>
+</body>
+</html>
