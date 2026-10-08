@@ -44,4 +44,4 @@ Os principais dos erros do silktide era por falta de uma sequência de HTML lóg
 ## 7. Erros Corrigidos
 
 
-Todos os erros, por não serem muito complicados, foram devidamente corrigidos e checados.
+Os erros relacionados a grupos de labels, titulo adequado e alguns de contraste como o da página de cadastro de itens foram atualizados.
