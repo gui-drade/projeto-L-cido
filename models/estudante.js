@@ -9,6 +9,9 @@ const Estudante = sequelize.define(
         },
         idade: {
             type: DataTypes.INTEGER,
+        },
+        escola: {
+            type: DataTypes.STRING,
         }
     },
     {

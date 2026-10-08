@@ -27,10 +27,11 @@
         {{#each alunos}}
         <div class="card-aluno">
             <form action="/aluno/editar/{{this.id}}" method="POST">
-                <div>
-                    <strong>Nome:</strong> <input type="text" name="nome" class="input-edit" value="{{this.nome}}" required>
-                    <strong>E-mail:</strong> <input type="email" name="email" class="input-edit" value="{{this.email}}" required>
-                </div>
+<div>
+    <strong>Nome:</strong> <input type="text" name="nome" class="input-edit" value="{{this.nome}}" required>
+    <strong>Idade:</strong> <input type="number" name="idade" class="input-edit" value="{{this.idade}}" required>
+    <strong>Escola:</strong> <input type="text" name="escola" class="input-edit" value="{{this.escola}}" required>
+</div>
                 <div class="linha-edit">
                     <button type="submit" class="btn" style="background: #238636; color: white; border: none; padding: 8px 20px;">Salvar Alteração</button>
                     <a href="/aluno/deletar/{{this.id}}" class="btn" style="background: #f85149; color: white; border: none; text-decoration: none; padding: 8px 20px; display: inline-block; font-size: 0.9rem;">Excluir Conta</a>

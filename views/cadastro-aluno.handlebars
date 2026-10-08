@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Usuário</title>
+    <title><h1>Cadastro de Usuário</h1></title>
 </head>
 <style>
     body { background: linear-gradient(135deg, #030406 0%, #223447 100%); color: #F0F2F5; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; margin: 0; }
@@ -25,7 +25,12 @@
                 <label for="idade">Idade</label>
                 <input type="number" name="idade" placeholder="Digite a idade" required>
             </div>
+            <div class="input-group">
+                <label for="escola">Escola</label>
+                <input type="text" id="escola" name="escola" placeholder="Digite o nome da sua escola" required>
+            </div>
             <button class="btn-cadastrar" type="submit">Cadastrar Conta</button>
+            
         </form>
         <button class="btn-voltar" onclick="window.location.href='/'">Voltar</button>
     </div>

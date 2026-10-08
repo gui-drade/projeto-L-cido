@@ -2,11 +2,12 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const app = express();
 const sequelize = require('./config/bd');
+// importando o modulo operators do sequelize
 const { Op } = require('sequelize');
 // Importando o modelo Item.
 const Item = require('./models/item');
 //Importando o modelo de estudante
-const Estudante = require('.models/estudante')
+const Estudante = require('./models/estudante')
 
 app.engine('handlebars', exphbs.engine({defaultLayout: false}));
 app.set('view engine', 'handlebars');
@@ -16,7 +17,7 @@ app.use(express.json());
 
 async function conectarBD() {
   try {
-    await sequelize.sync();
+    await sequelize.sync({ force: true }); 
     console.log('Conexão com o banco de dados estabelecida com sucesso!');
     app.listen(3000, () =>{
         console.log('Servidor rodando com sucesso')
@@ -121,11 +122,17 @@ app.get('/acoes-rapidas', (req, res) => {
 });
 
 app.post('/aluno/cadastrar', async (req, res) => {
-    await Estudante.create({ 
-        nome: req.body.nome, 
-        idade: req.body.idade || 20 
-    });
-    res.redirect('/gerenciar-alunos');
+    try {
+        await Estudante.create({ 
+            nome: req.body.nome, 
+            idade: req.body.idade,
+            escola: req.body.escola
+        });
+        res.redirect('/gerenciar-alunos');
+    } catch (erro) {
+        console.error("Erro ao cadastrar aluno:", erro);
+        res.status(500).send("Erro ao cadastrar aluno.");
+    }
 });
 
 app.get('/gerenciar-alunos', async (req, res) => {
@@ -142,13 +149,21 @@ app.get('/gerenciar-alunos', async (req, res) => {
 });
 
 app.post('/aluno/editar/:id', async (req, res) => {
-    await Estudante.update(
-        { nome: req.body.nome },
-        { where: { id: req.params.id } }
-    );
-    res.redirect('/gerenciar-alunos');
+    try {
+        await Estudante.update(
+            { 
+                nome: req.body.nome,
+                idade: req.body.idade,
+                escola: req.body.escola 
+            },
+            { where: { id: req.params.id } }
+        );
+        res.redirect('/gerenciar-alunos');
+    } catch (erro) {
+        console.error("Erro ao editar aluno:", erro);
+        res.status(500).send("Erro ao editar aluno.");
+    }
 });
-
 app.get('/aluno/deletar/:id', async (req, res) => {
     await Estudante.destroy({ 
         where: { id: req.params.id } 
